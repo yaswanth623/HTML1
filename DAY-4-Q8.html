@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div {
+  width: 500px;
+  height: 300px;
+  border: 1px solid black;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<p>Click in the div element below to get the x (horizontal) and y (vertical) coordinates of the mouse pointer, when it is clicked.</p>
+
+<div onclick="showCoords(event)"><p id="demo"></p></div>
+
+<p><strong>Tip:</strong> Try to click different places in the div.</p>
+
+<script>
+function showCoords(event) {
+  var cX = event.clientX;
+  var cY = event.clientY;;
+  var coords1 = " X coords: " + cX + ", Y coords: " + cY;
+  document.getElementById("demo").innerHTML = coords1 ;
+}
+</script>
+
+</body>
+</html>

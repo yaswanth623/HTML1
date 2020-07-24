@@ -1,0 +1,19 @@
+<html>
+<h2> Hide Image in JavaScript</h2>
+<script language=javascript type='text/javascript'> 
+function hideImage() { 
+if (document.getElementById) { 
+document.getElementById('div').style.visibility = 'hidden'; 
+} 
+} 
+function showImage() { 
+if (document.getElementById) { 
+document.getElementById('div').style.visibility = 'visible'; 
+} 
+} 
+</script> 
+<body onload="javascript:hideImage()">
+<div id="div"><img SRC="hand1.png" BORDER="0"> </div>
+<button onclick="javascript:hideImage()">Hide</button> 
+<button onclick="javascript:showImage()">Show</button>
+</html>
