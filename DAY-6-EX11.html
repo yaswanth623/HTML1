@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script> 
+$(function(){
+  $("#flip").click(function(){
+    $("#panel").slideDown("slow");
+  });
+});
+
+</script>
+<style> 
+#panel, #flip {
+  padding: 5px;
+  text-align: center;
+  
+}
+
+#panel {
+  
+  display: none;
+}
+
+
+</style>
+<script> 
+$(function(){
+  $("#flipp").click(function(){
+    $("#panell").slideUp("slow");
+  });
+});
+</script>
+<style> 
+#panell, #flipp {
+  padding: 5px;
+  text-align: center;
+  
+}
+
+#panell {
+  padding: 50px;
+}
+</style>
+
+</head>
+<body style="background-color: pink">
+	<center>
+ 
+<button id="flip">Click to slide down panel</button>
+<div id="panel">Hello world!</div>
+<br>
+<button id="flipp">Click to slide up panel</button>
+<div id="panell">Welcome!</div>
+
+</body>
+</html>
