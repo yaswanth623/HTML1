@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		body {
+  background-color: coral;
+}
+	</style>
+
+<script type="text/javascript">
+	
+// JS CODE FOR SELECTION OF DROPDOWN WITH QUALIFICATIONS:
+types=["Graduation","Post Graduation"];
+function f1()
+{
+var typeDD=document.getElementById('type');
+for(i=0;i<types.length;i++){
+var ele=document.createElement('option');
+ele.text=types[i];
+typeDD.add(ele,i+1)
+}
+}
+data=[['Computer Science','Electronic Engineering','Bachelor of Arts'],['Masters in Arts','Mtech Computer Science','MBA']];
+  function f2()
+{
+var typeDDN=document.getElementById('type');
+  var selectedIdx= typeDDN.selectedIndex;
+
+console.log(selectedIdx);
+
+var dataDD=document.getElementById('dd');
+
+dataDD.innerText=null;
+
+
+for(i=0;i<data[selectedIdx].length;i++)
+{
+
+var ele=document.createElement('option');
+ele.text=data[selectedIdx][i];
+
+dataDD.add(ele,i+1)
+
+
+}
+
+
+}
+
+// JS CODE FOR CONFIRMATION OF PASSWORD:
+function f3() {
+        var password = document.getElementById("txtPassword").value;
+        var confirmPassword = document.getElementById("txtConfirmPassword").value;
+        if (password != confirmPassword) {
+            alert("Passwords do not match.");
+            return false;
+        }
+        else
+        {
+
+        alert("Passwods match")
+        return true;
+      }
+    }
+
+
+// JS CODE FOR VALIDATION OF ALPHABETS :
+function test(e)
+{
+	if(!((e.which>=65 && e.which<=90) ||(e.which>=97 && e.which<=122))){
+				e.preventDefault();
+			}
+}
+ 
+
+</script>
+
+<!-- HTML CODE FOR DROP DOWN WITH QUALIFICATION AND MANDATORY FIELD-->
+<center>
+	<p><h1> NEW REGISTRATION </h1></p>
+	 <div style="height: 500px; width: 500px; background-color: pink" > 
+
+<br>
+	
+
+
+<body onload="f1()">
+
+<select id="type" onchange="f2()">
+
+</select>
+
+<select id="dd">
+
+<option>select</option>
+
+
+
+
+<!-- HTML CODE FOR PASSWORD CONFIRMATION  AND MANDATORY FIELD-->
+  
+        
+           
+            <br>
+<input type="password" placeholder="Password" required id="txtPassword" / >
+<br>
+<input type="password" placeholder="Confirm Password" required id="txtConfirmPassword" />
+<br>
+        
+            
+            
+           
+        
+  <!-- HTML CODE FOR VALIDATION OF ONLY ALPHABETS AND MANDATORY FIELD -->
+            <input type="text"  placeholder="Emp Name" onkeypress="test(event)" required>
+            <br>
+    
+  <!-- HTML CODE FOR VALIDATION OF AGE -->
+             <input type="date" name="DOB" placeholder="Date 0f birth" max="2002-08-01">
+              <br>
+             <input type="button" id="btnSubmit" value="Submit" onclick="return f3()"  />
+              
+    
+
+</center>
+
+
+
+
+
+
+</form>
+</center>
+</select>
+</body>
+</body>
+</html>
+
+
+
+	
+	
