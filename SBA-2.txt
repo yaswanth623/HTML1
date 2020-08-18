@@ -1,0 +1,328 @@
+1)SplitString
+
+
+public class SplitString {
+
+	public static void main(String[] args) {
+		String str = "This Is Java Programming"; 
+        String[] split = str.split(" "); 
+  
+        for (String a : split) 
+        	
+            System.out.println(a);
+
+	}
+
+}
+
+
+
+--------------------------------------------------------------------------------------------------------
+
+2)Split and the Reverse the String
+
+
+
+public class SplitReverse {
+	public static void main(String[] args) {
+		String str1="This Is Java Programming";
+		String[] str2 = str1.split(" ");
+		        for (int i=0;i<str2.length;i++) {
+		        String str3=str2[i];
+		        StringBuilder sb=new StringBuilder(str3);
+		        sb.reverse();
+		        String str4=sb.toString();
+		        System.out.println(str4);
+		       
+		
+	}
+
+	}
+}
+
+
+---------------------------------------------------------------------------------------------------------
+
+3)
+
+CAR class
+
+package exam.jfs.dxc;
+
+public class Car {
+
+	int ManfYear;
+	  private String name;
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getManfYear() {
+		return ManfYear;
+	}
+	public void setManfYear(int manfYear) {
+		ManfYear = manfYear;
+	}
+	public Car(String name, int manfYear) {
+		super();
+		this.name = name;
+		ManfYear = manfYear;
+	}
+	@Override
+	public String toString() {
+		return "Car [name=" + name + ", ManfYear=" + ManfYear + "]";
+	}
+	public Car() {
+		
+	}
+	  
+	}
+
+----------------------------------------------------------
+
+SHOWROOM Class
+
+package exam.jfs.dxc;
+
+import java.util.List;
+
+public class Showroom {
+
+	 private String Showroomname;
+	 private int address;
+	 List<Car> cars;
+	public String getShowroomname() {
+		return Showroomname;
+	}
+	public void setShowroomname(String showroomname) {
+		Showroomname = showroomname;
+	}
+	public int getAddress() {
+		return address;
+	}
+	public void setAddress(int address) {
+		this.address = address;
+	}
+	public List<Car> getCars() {
+		return cars;
+	}
+	public void setCars(List<Car> cars) {
+		this.cars = cars;
+	}
+	public Showroom(String showroomname, int address, List<Car> cars) {
+		super();
+		Showroomname = showroomname;
+		this.address = address;
+		this.cars = cars;
+	}
+	@Override
+	public String toString() {
+		return "Showroom [Showroomname=" + Showroomname + ", address=" + address + ", cars=" + cars + "]";
+	}
+	 
+	 
+	}
+
+--------------------------------------------------------
+
+3A)MAIN CLASS(Search the  cars based on showroom name)
+
+package exam.jfs.dxc;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class MainCar {
+
+	Map<String,List<Car>> carstore;
+	public void displayCarsByShowroomname(String Showroomname)
+	{
+		List<Car> cars=carstore.get(Showroomname);
+		for(Car car:cars){
+			System.out.println(car);
+			}
+
+	}
+	public static void main(String[] args) {
+		Car c1=new Car("TATA",1980);
+		Car c2=new Car("Maruthi",1981);
+		Car c3=new Car("Swift",1982);
+		Car c4=new Car("Benz",1983);
+		List<Car> cars=new ArrayList<Car>();
+          cars.add(c1);
+          cars.add(c2);
+          cars.add(c3);
+          cars.add(c4);
+         Showroom showroom=new Showroom("CARZ",767,cars);
+        //The above one comes under CARZ showroom 
+         Car c5=new Car("Scoda",1984);
+ 		Car c6=new Car("KIA",1985);
+ 		Car c7=new Car("Ertiga",1986);
+ 		List<Car> cars1=new ArrayList<Car>();
+ 		  cars1.add(c5);
+ 		  cars1.add(c6);
+ 		  cars1.add(c7);
+ 		  Showroom showroom1=new Showroom("REAL WORLD",768,cars1);
+ 		 //The above one comes under REAL WORLD showroom 
+ 		 
+ 		 MainCar m= new MainCar();
+
+ 		m.carstore=new HashMap<String,List<Car>>();
+ 		m.carstore.put(showroom.getShowroomname(), showroom.getCars());
+ 		m.carstore.put(showroom1.getShowroomname(),showroom1.getCars());
+
+
+ 		m.displayCarsByShowroomname("REAL WORLD");
+ 		
+
+	
+	}
+}
+
+----------------------------------------------------
+
+3B)MAIN CLASS-(Sort Based on Year)
+
+package exam.jfs.dxc;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class ManufSort {
+	public static void main(String[] args) {
+		List<Integer> Car=new ArrayList<Integer>();
+		Car.add(1990);
+		Car.add(1994);
+		Car.add(1993);
+		Car.add(1991);
+		Car.add(1999);
+		Collections.sort(Car);
+		for(int x:Car) {
+			System.out.println(x);
+
+}
+
+}
+}
+
+		
+
+-------------------------------------------
+
+3B)MAIN CLASS-(Sort Based on Showroom)
+
+package exam.jfs.dxc;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class CarSort {
+	public static void main(String[] args) {
+		List<String> Car=new ArrayList<String>();
+		Car.add("Shift");
+		Car.add("Scoda");
+		Car.add("Tata");
+		Car.add("Benz");
+		Car.add("Kia");
+		Collections.sort(Car);
+		for(String x:Car) {
+			System.out.println(x);
+		}
+	}
+}
+		
+
+
+
+
+
+
+----------------------------------------------
+
+3C)MAIN CLASS (Car details based on showroom name)
+
+package exam.jfs.dxc;
+import java.util.Comparator;
+
+public class SortName implements Comparator<Car> {
+
+	@Override
+	public int compare(Car n1, Car n2) {		
+		return n1. getName().compareTo(n2. getName());
+	}
+
+}
+
+
+----------------------------------------------
+
+3C)MAIN CLASS (Car details based on Manufacturing year)
+
+package exam.jfs.dxc;
+
+import java.util.Comparator;
+
+public class SortYear implements Comparator<Car> {
+	@Override
+	public int compare(Car c1, Car c2) {		
+		return c1.getManfYear() - c2.getManfYear();
+	}
+
+}
+
+
+-------------------------------------------------------------------------------------------------------------
+
+4)
+
+Unchecked Exception
+
+ class UncheckedException extends Exception {
+	public UncheckedException() {
+		System.out.println("Invalid marks");
+		}
+		
+}
+
+---------------------------------------------------
+
+Validation of marks
+
+
+public class ValidationMarks {
+	void validmarks(int marks) throws UncheckedException
+	{
+		if(marks<0 || marks>100)
+			throw new UncheckedException();
+		else
+			System.out.println("Marks scored is "+marks);
+	}
+}
+
+------------------------------------------------------
+
+MyExcep
+
+
+public class MyExcep {
+
+	public static void main(String[] args) {
+		ValidationMarks d=new ValidationMarks();
+		try {
+			d.validmarks(-1);
+		}
+		catch (Exception e) {
+			//e.printStackTrace();
+			System.out.println(e);
+			}
+			
+		}
+	}
+
+--------------------------------------------------------------------------------------------------------------------
